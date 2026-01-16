@@ -23,7 +23,7 @@ function App() {
     <Route path="/dashboard" element={       <PrivateRoute>
         <Dashboard />
       </PrivateRoute>
-} />
+}/>
     <Route path='/' element={ <PrivateRoute><Medicine/></PrivateRoute>}/>
     <Route path='/edit-medicine/:id' element={<EditMedicine/>}/>
     <Route path='/sales' element={<PrivateRoute><Sales /></PrivateRoute>}/>
