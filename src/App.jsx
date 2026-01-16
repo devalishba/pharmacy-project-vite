@@ -10,6 +10,7 @@ import EditMedicine from './pages/edit-medicine'
 import Sales from './pages/sales'
 import SignUp from './pages/sign-up'
 import Login from './pages/login'
+import PrivateRoute from './PrivateRoute'
 
 function App() {
 
@@ -19,11 +20,11 @@ function App() {
 <Routes>
         <Route path='/register' element={<SignUp/>}/>
       <Route path='/login' element={<Login/>}/>
-    <Route path="/dashboard" element={       <PrivateRout>
+    <Route path="/dashboard" element={       <PrivateRoute>
         <Dashboard />
-      </PrivateRout>
+      </PrivateRoute>
 } />
-    <Route path='/' element={ <PrivateRout><Medicine/></PrivateRout>}/>
+    <Route path='/' element={ <PrivateRoute><Medicine/></PrivateRoute>}/>
     <Route path='/edit-medicine/:id' element={<EditMedicine/>}/>
     <Route path='/sales' element={<PrivateRoute><Sales /></PrivateRoute>}/>
 

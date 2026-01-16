@@ -29,10 +29,12 @@ email:''
             
             const res = await axios.post('http://localhost:8000/register',user)
             console.log(res);
+             localStorage.setItem("token", res.data.token);
             toast.success('User Register successfully')
             navigate('/dashboard') 
+
         } catch (error) {
-            toast.error(error.response.data.msg);
+            toast.error(error.response.data.msg  || "Something went wrong");
             
         }
         

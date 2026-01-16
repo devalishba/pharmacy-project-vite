@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import axios from  "axios"
 import toast from "react-hot-toast"
 import { FaRegEyeSlash } from "react-icons/fa6";
+import { FaEye } from "react-icons/fa";
 
 function Login() {
    const [showPassword, setShowPassword] = useState(false);
@@ -20,22 +21,20 @@ email:''
     }  
     const navigate = useNavigate()
 
-async function submitHandler(e) {
-  e.preventDefault();
-  try {
-    const res = await axios.post("http://localhost:8000/login", user);
-    console.log(res);
-
-    // save token in localStorage
-    localStorage.setItem("token", res.data.token);
-
-    toast.success("User logged successfully");
-    navigate("/dashboard");
-  } catch (error) {
-    toast.error(error.response.data.msg);
-  }
-}
-    
+   async function submitHandler(e) {
+        e.preventDefault()
+        try {
+            
+            const res = await axios.post('http://localhost:8000/login',user)
+            console.log(res);
+            toast.success('User logged successfully')
+            navigate('/dashboard') 
+        } catch (error) {
+            toast.error(error.response.data.msg);
+            
+        }
+        
+    }
   return (
      <div className=' bg-[#c48e97]  h-[100vh] py-4'>
         <Form className='w-[30%] mx-auto  p-4 bg-[#fff]' onSubmit={submitHandler}>
