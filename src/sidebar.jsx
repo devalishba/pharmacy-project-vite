@@ -5,6 +5,13 @@ import { FaShoppingCart } from "react-icons/fa";
 import { AiFillMedicineBox } from "react-icons/ai";
 
 function Sidebar() {
+      const navigate = useNavigate();
+
+  function logout() {
+    localStorage.removeItem("token");
+    navigate("/login");
+  }
+
   return (
     <div className='p-4'>
 
@@ -36,6 +43,15 @@ function Sidebar() {
 
                     Sales
                     </Link>
+                </li>
+                <li className='flex items-center justify-items-center ml-3'>
+                    <FaShoppingCart className='text-2xl'/>
+
+                    <button  onClick={logout} className="block py-2 px-4 hover:bg-blue-700 transition duration-200">
+
+
+                    Logout
+                    </button>
                 </li>
                
 
